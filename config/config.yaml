@@ -1,0 +1,24 @@
+#发布消息配置
+publish:
+  #默认消息等级
+  priority: 1
+  #允许谁进行消息发布
+  friend:
+    - 小红
+    - 小明
+
+#订阅消息配置
+subscribe:
+  # 不用的消息等级,通知不同的好友和群聊
+  friend:
+    nickname:
+      - 小红:
+          priority: [1,2,3,4,5,6,7]
+    remark:
+      - 小明:
+          priority: [1,2,3,4,5,6,7]
+  group:
+     - 群聊1:
+         priority: [1,2,3,4,5,6,7]
+     - 群聊2:
+         priority: [1,2,3,4,5,6,7]
