@@ -1,3 +1,7 @@
+
+hotLoginPath: "./config/hot_login"
+
+
 #发布消息配置
 publish:
   #默认消息等级

@@ -5,21 +5,24 @@ import (
 	"github.com/gotify/plugin-api"
 )
 
-var _ plugin.Plugin = (*Plugin)(nil)
+var _ plugin.Messenger = (*Plugin)(nil)
 
 // GetGotifyPluginInfo returns gotify plugin info
 func GetGotifyPluginInfo() plugin.Info {
 	return plugin.Info{
-		Name:       "Gotify微信插件",
-		ModulePath: "github.com/gotify/server/example/minimal",
+		Version: "v1.0",
+		Author:  "injoy",
+		Name:    "Gotify微信插件",
 	}
 }
 
 // NewGotifyPluginInstance creates a plugin instance for a user context.
 func NewGotifyPluginInstance(ctx plugin.UserContext) plugin.Plugin {
-	return &Plugin{
-		Wechat: &Wechat{},
+	p := &Plugin{
+		ctx: ctx,
 	}
+	p.initWechat()
+	return p
 }
 
 // Plugin is plugin instance
@@ -28,7 +31,8 @@ type Plugin struct {
 	enabled bool
 	handler plugin.MessageHandler
 
-	*Wechat
+	Client *openwechat.Bot
+	Self   *openwechat.Self
 }
 
 // Enable implements plugin.Plugin
@@ -48,16 +52,6 @@ func (c *Plugin) SetMessageHandler(h plugin.MessageHandler) {
 	c.handler = h
 }
 
-func (c *Plugin) SendMessage(msg *openwechat.Message) error {
-	if c.handler != nil {
-		return c.handler.SendMessage(plugin.Message{
-			Message:  msg.Content,
-			Title:    "来自微信好友:" + msg.FromUserName,
-			Priority: 0,
-			Extras: map[string]interface{}{
-				"微信好友": msg.FromUserName,
-			},
-		})
-	}
-	return nil
+func main() {
+	panic("this should be built as go plugin")
 }
