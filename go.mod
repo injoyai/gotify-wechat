@@ -1,9 +1,9 @@
 module github.com/injoyai/gotify-wechat
 
-go 1.20
+go 1.18
 
 require (
-	github.com/eatmoreapple/openwechat v1.4.10
+	github.com/eatmoreapple/openwechat v1.4.3
 	github.com/gotify/plugin-api v1.0.0
 )
 

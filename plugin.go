@@ -36,20 +36,20 @@ type Plugin struct {
 }
 
 // Enable implements plugin.Plugin
-func (c *Plugin) Enable() error {
-	c.enabled = true
+func (p *Plugin) Enable() error {
+	p.enabled = true
 	return nil
 }
 
 // Disable implements plugin.Disable
-func (c *Plugin) Disable() error {
-	c.enabled = false
+func (p *Plugin) Disable() error {
+	p.enabled = false
 	return nil
 }
 
 // SetMessageHandler implements plugin.Messenger
-func (c *Plugin) SetMessageHandler(h plugin.MessageHandler) {
-	c.handler = h
+func (p *Plugin) SetMessageHandler(h plugin.MessageHandler) {
+	p.handler = h
 }
 
 func main() {

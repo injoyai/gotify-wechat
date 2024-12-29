@@ -3,6 +3,9 @@
 Gotify 微信插件,开发中...
 优势: 微信消息能后台通知
 
+github.com/eatmoreapple/openwechat@v1.4.3 是最新支持1.18版本
+
+
 ### 功能
 1. 可以在微信中推送消息到Gotify
 2. 从微信中接收到Gotify的推送消息
